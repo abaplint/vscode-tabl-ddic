@@ -2,7 +2,7 @@
   "name": "vscode-tabl-ddic",
   "displayName": "vscode-tabl-ddic",
   "description": "ABAP TABL DDIC Syntax Hightligting",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.138.0"
   },
