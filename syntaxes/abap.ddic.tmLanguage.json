@@ -1,32 +1,291 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "ABAP TABL DDIC",
+	"scopeName": "source.ddic",
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
+		{ "include": "#comments" },
+		{ "include": "#annotations" },
+		{ "include": "#definition" },
+		{ "include": "#extend-type" },
+		{ "include": "#extend-field" },
+		{ "include": "#include-declaration" },
+		{ "include": "#field-declaration" },
+		{ "include": "#clauses" },
+		{ "include": "#literals" },
+		{ "include": "#quoted-identifier" },
+		{ "include": "#punctuation" }
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.abap.ddic",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.abap.ddic",
-			"begin": "\"",
-			"end": "\"",
+		"comments": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.abap.ddic",
-					"match": "\\\\."
+					"name": "comment.line.double-slash.abap.ddic",
+					"begin": "//",
+					"end": "$",
+					"beginCaptures": {
+						"0": { "name": "punctuation.definition.comment.abap.ddic" }
+					}
+				},
+				{
+					"name": "comment.block.abap.ddic",
+					"begin": "/\\*",
+					"end": "\\*/",
+					"beginCaptures": {
+						"0": { "name": "punctuation.definition.comment.begin.abap.ddic" }
+					},
+					"endCaptures": {
+						"0": { "name": "punctuation.definition.comment.end.abap.ddic" }
+					}
 				}
 			]
+		},
+		"annotations": {
+			"comment": "@EndUserText.label, @AbapCatalog.foreignKey.keyType, @<Semantics...",
+			"match": "(@<?)\\s*([A-Za-z_]\\w*(?:\\.[A-Za-z_][\\w/]*)*)",
+			"captures": {
+				"1": { "name": "punctuation.definition.annotation.abap.ddic" },
+				"2": { "name": "storage.type.annotation.abap.ddic" }
+			}
+		},
+		"definition": {
+			"comment": "DEFINE TABLE dbtab, DEFINE STRUCTURE struct, DEFINE ASPECT aspect",
+			"match": "(?i)^[ \\t]*(define)[ \\t]+(table|structure|aspect)\\b(?:[ \\t]+((?:/\\w+/)?\\w+))?",
+			"captures": {
+				"1": { "name": "keyword.control.define.abap.ddic" },
+				"2": { "name": "storage.type.object.abap.ddic" },
+				"3": { "name": "entity.name.type.abap.ddic" }
+			}
+		},
+		"extend-type": {
+			"comment": "EXTEND TYPE type WITH append",
+			"match": "(?i)^[ \\t]*(extend)[ \\t]+(type)[ \\t]+((?:/\\w+/)?\\w+)(?:[ \\t]+(with)[ \\t]+((?:/\\w+/)?\\w+))?",
+			"captures": {
+				"1": { "name": "keyword.control.extend.abap.ddic" },
+				"2": { "name": "storage.type.object.abap.ddic" },
+				"3": { "name": "entity.name.type.abap.ddic" },
+				"4": { "name": "keyword.control.extend.abap.ddic" },
+				"5": { "name": "entity.name.type.abap.ddic" }
+			}
+		},
+		"extend-field": {
+			"comment": "EXTEND component : value_help|foreign_key",
+			"match": "(?i)^[ \\t]*(extend)[ \\t]+((?:\"[^\"]*\")|(?:/\\w+/)?\\w+)[ \\t]*(:)",
+			"captures": {
+				"1": { "name": "keyword.control.extend.abap.ddic" },
+				"2": { "name": "entity.name.variable.field.abap.ddic" },
+				"3": { "name": "punctuation.separator.type.abap.ddic" }
+			}
+		},
+		"include-declaration": {
+			"comment": "[KEY] INCLUDE struct [WITH SUFFIX suffix]",
+			"match": "(?i)^[ \\t]*(?:(key)[ \\t]+)?(include)[ \\t]+((?:/\\w+/)?\\w+)",
+			"captures": {
+				"1": { "name": "storage.modifier.key.abap.ddic" },
+				"2": { "name": "keyword.other.include.abap.ddic" },
+				"3": { "name": "entity.name.type.include.abap.ddic" }
+			}
+		},
+		"field-declaration": {
+			"comment": "[KEY] field : {data_element|abap.type[(n)|(n,m)]|include struct|reference to type} [NOT NULL] [clauses];",
+			"begin": "(?i)^[ \\t]*(?:(key)[ \\t]+)?((?:\"[^\"]*\")|(?:/\\w+/)?\\w+)[ \\t]*(:)[ \\t]*(?:(include)[ \\t]+((?:/\\w+/)?\\w+)|(reference)[ \\t]+(to)[ \\t]+((?:/\\w+/)?[\\w.]+)|((?:/\\w+/)?\\w+(?:\\.\\w+)?))?",
+			"beginCaptures": {
+				"1": { "name": "storage.modifier.key.abap.ddic" },
+				"2": { "name": "entity.name.variable.field.abap.ddic" },
+				"3": { "name": "punctuation.separator.type.abap.ddic" },
+				"4": { "name": "keyword.other.include.abap.ddic" },
+				"5": { "name": "entity.name.type.include.abap.ddic" },
+				"6": { "name": "keyword.other.reference.abap.ddic" },
+				"7": { "name": "keyword.other.reference.abap.ddic" },
+				"8": { "name": "entity.name.type.abap.ddic" },
+				"9": { "patterns": [ { "include": "#type-name" } ] }
+			},
+			"end": "(;)|(?=^[ \\t]*[}@])",
+			"endCaptures": {
+				"1": { "name": "punctuation.terminator.statement.abap.ddic" }
+			},
+			"patterns": [
+				{ "include": "#comments" },
+				{ "include": "#length-spec" },
+				{ "include": "#clauses" },
+				{ "include": "#literals" },
+				{ "include": "#quoted-identifier" },
+				{ "include": "#punctuation" }
+			]
+		},
+		"type-name": {
+			"patterns": [
+				{
+					"comment": "built-in ABAP Dictionary types",
+					"match": "(?i)\\b(abap)(\\.)(accp|char|clnt|cuky|curr|dats|decfloat16|decfloat34|dec|df16_dec|df16_raw|df16_scl|df34_dec|df34_raw|df34_scl|fltp|geom_ewkb|int1|int2|int4|int8|lang|lchr|lraw|numc|prec|quan|rawstring|raw|sstring|string|tims|unit|utclong|varc)\\b",
+					"captures": {
+						"1": { "name": "support.type.builtin.abap.ddic" },
+						"2": { "name": "punctuation.accessor.abap.ddic" },
+						"3": { "name": "support.type.builtin.abap.ddic" }
+					}
+				},
+				{
+					"comment": "unknown abap.* type",
+					"match": "(?i)\\b(abap)(\\.)(\\w+)\\b",
+					"captures": {
+						"1": { "name": "support.type.abap.ddic" },
+						"2": { "name": "punctuation.accessor.abap.ddic" },
+						"3": { "name": "support.type.abap.ddic" }
+					}
+				},
+				{
+					"comment": "data element, structure or table type",
+					"match": "(?i)(?:/\\w+/)?\\w+",
+					"name": "entity.name.type.data-element.abap.ddic"
+				}
+			]
+		},
+		"length-spec": {
+			"comment": "(n) or (n,m)",
+			"match": "(\\()[ \\t]*(\\d+)[ \\t]*(?:(,)[ \\t]*(\\d+)[ \\t]*)?(\\))",
+			"captures": {
+				"1": { "name": "punctuation.definition.parameters.begin.abap.ddic" },
+				"2": { "name": "constant.numeric.integer.abap.ddic" },
+				"3": { "name": "punctuation.separator.abap.ddic" },
+				"4": { "name": "constant.numeric.integer.abap.ddic" },
+				"5": { "name": "punctuation.definition.parameters.end.abap.ddic" }
+			}
+		},
+		"clauses": {
+			"patterns": [
+				{
+					"comment": "WITH FOREIGN KEY [[n,m]] check_table",
+					"match": "(?i)\\b(with[ \\t]+foreign[ \\t]+key)\\b[ \\t]*(?:(\\[)([^\\]]*)(\\]))?[ \\t]*((?:/\\w+/)?\\w+)?",
+					"captures": {
+						"1": { "name": "keyword.other.foreign-key.abap.ddic" },
+						"2": { "name": "punctuation.definition.cardinality.begin.abap.ddic" },
+						"3": { "name": "constant.other.cardinality.abap.ddic" },
+						"4": { "name": "punctuation.definition.cardinality.end.abap.ddic" },
+						"5": { "name": "entity.name.type.check-table.abap.ddic" }
+					}
+				},
+				{
+					"comment": "WITH VALUE HELP value_help",
+					"match": "(?i)\\b(with[ \\t]+value[ \\t]+help)\\b[ \\t]*((?:/\\w+/)?\\w+)?",
+					"captures": {
+						"1": { "name": "keyword.other.value-help.abap.ddic" },
+						"2": { "name": "entity.name.type.value-help.abap.ddic" }
+					}
+				},
+				{
+					"comment": "WITH REFERENCE TABLE tab AND REFERENCE FIELD field",
+					"match": "(?i)\\b(with[ \\t]+reference[ \\t]+table)\\b[ \\t]*((?:/\\w+/)?\\w+)?",
+					"captures": {
+						"1": { "name": "keyword.other.reference.abap.ddic" },
+						"2": { "name": "entity.name.type.reference-table.abap.ddic" }
+					}
+				},
+				{
+					"match": "(?i)\\b(and[ \\t]+reference[ \\t]+field)\\b[ \\t]*((?:/\\w+/)?\\w+)?",
+					"captures": {
+						"1": { "name": "keyword.other.reference.abap.ddic" },
+						"2": { "name": "variable.other.field.abap.ddic" }
+					}
+				},
+				{
+					"comment": "WITH SUFFIX suffix",
+					"match": "(?i)\\b(with[ \\t]+suffix)\\b[ \\t]*(\\w+)?",
+					"captures": {
+						"1": { "name": "keyword.other.suffix.abap.ddic" },
+						"2": { "name": "entity.name.type.suffix.abap.ddic" }
+					}
+				},
+				{
+					"match": "(?i)\\b(not[ \\t]+null)\\b",
+					"name": "storage.modifier.not-null.abap.ddic"
+				},
+				{
+					"match": "(?i)\\b(reference[ \\t]+to)\\b",
+					"name": "keyword.other.reference.abap.ddic"
+				},
+				{
+					"match": "(?i)\\b(boxed)\\b",
+					"name": "storage.modifier.boxed.abap.ddic"
+				},
+				{
+					"match": "(?i)\\b(include)\\b",
+					"name": "keyword.other.include.abap.ddic"
+				},
+				{
+					"match": "(?i)\\b(key)\\b",
+					"name": "storage.modifier.key.abap.ddic"
+				},
+				{
+					"comment": "WHERE/AND, optionally followed by an unqualified field name",
+					"match": "(?i)\\b(where|and)\\b(?:[ \\t]+((?:/\\w+/)?\\w+)\\b(?![ \\t]*\\.))?",
+					"captures": {
+						"1": { "name": "keyword.other.where.abap.ddic" },
+						"2": { "name": "variable.other.field.abap.ddic" }
+					}
+				},
+				{
+					"comment": "dbtab.field in WHERE conditions",
+					"match": "(?i)\\b((?:/\\w+/)?\\w+)(\\.)(\\w+)\\b",
+					"captures": {
+						"1": { "name": "variable.other.object.abap.ddic" },
+						"2": { "name": "punctuation.accessor.abap.ddic" },
+						"3": { "name": "variable.other.field.abap.ddic" }
+					}
+				},
+				{
+					"match": "=",
+					"name": "keyword.operator.comparison.abap.ddic"
+				}
+			]
+		},
+		"literals": {
+			"patterns": [
+				{
+					"name": "string.quoted.single.abap.ddic",
+					"begin": "'",
+					"end": "'(?!')",
+					"beginCaptures": {
+						"0": { "name": "punctuation.definition.string.begin.abap.ddic" }
+					},
+					"endCaptures": {
+						"0": { "name": "punctuation.definition.string.end.abap.ddic" }
+					},
+					"patterns": [
+						{
+							"name": "constant.character.escape.abap.ddic",
+							"match": "''"
+						}
+					]
+				},
+				{
+					"comment": "enumerated annotation values, eg #TRANSPARENT",
+					"match": "(#)(\\w+)",
+					"name": "constant.other.enum.abap.ddic",
+					"captures": {
+						"1": { "name": "punctuation.definition.constant.abap.ddic" }
+					}
+				},
+				{
+					"match": "(?i)\\b(true|false|null)\\b",
+					"name": "constant.language.abap.ddic"
+				},
+				{
+					"match": "\\b\\d+\\b",
+					"name": "constant.numeric.integer.abap.ddic"
+				}
+			]
+		},
+		"quoted-identifier": {
+			"comment": "delimited names, eg \"_extension\"",
+			"match": "\"[^\"]*\"",
+			"name": "entity.name.variable.field.quoted.abap.ddic"
+		},
+		"punctuation": {
+			"patterns": [
+				{ "match": "[{}]", "name": "punctuation.section.block.abap.ddic" },
+				{ "match": ";", "name": "punctuation.terminator.statement.abap.ddic" },
+				{ "match": ":", "name": "punctuation.separator.type.abap.ddic" },
+				{ "match": ",", "name": "punctuation.separator.abap.ddic" }
+			]
 		}
-	},
-	"scopeName": "source.ddic"
+	}
 }

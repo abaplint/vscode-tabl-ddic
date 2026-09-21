@@ -1,0 +1,55 @@
+@EndUserText.label : 'Syntax highlighting demo'
+@AbapCatalog.enhancementCategory : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #ALLOWED
+@AbapCatalog.replacementObject : 'demo_cds_view'
+define table zdemo_syntax {
+
+  // a line comment
+  /* a block
+     comment */
+
+  key mandt    : abap.clnt not null;
+  key id       : char1 not null;
+
+  @AbapCatalog.foreignKey.label : 'Check against airline'
+  @AbapCatalog.foreignKey.keyType : #KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  carrid       : s_carr_id
+    with foreign key [0..*,1] scarr
+      where mandt = zdemo_syntax.mandt
+        and carrid = zdemo_syntax.carrid;
+
+  connid       : s_conn_id
+    with value help demo_f4_field
+      where carrid = zdemo_syntax.carrid;
+
+  status       : abap.char(1) with value help zdemo_vh where status = 'A';
+
+  @Semantics.quantity.unitOfMeasure : 'zdemo_syntax.unit'
+  quantity     : abap.quan(13,3) with reference table zunit_tab and reference field unit;
+  unit         : abap.unit(3);
+
+  num1         : abap.int8;
+  dec1         : abap.dec(31,10);
+  decf1        : abap.df34_dec(31,0);
+  fltp1        : abap.fltp;
+  numc1        : abap.numc(10);
+  descr        : abap.sstring(255);
+  text         : abap.string(0);
+  data         : abap.rawstring(0);
+  dats1        : abap.dats;
+  tims1        : abap.tims;
+  langu        : abap.lang;
+
+  ref          : reference to object;
+  sub          : zdemo_struct boxed;
+  namespaced   : /dmo/carrier_id;
+
+  include zdemo_include;
+  key include zdemo_key_include;
+  "_ext"       : include zdemo_ext with suffix ext;
+
+  extend country : with foreign key ztabl_country;
+}
