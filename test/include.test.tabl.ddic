@@ -1,0 +1,23 @@
+// SYNTAX TEST "source.ddic" "plain, key and named includes"
+
+define table zdemo_include {
+  key mandt : abap.clnt not null;
+
+  include zdemo_inc;
+//^^^^^^^ keyword.other.include.abap.ddic
+//        ^^^^^^^^^ entity.name.type.include.abap.ddic
+  key include zdemo_key_inc;
+//^^^ storage.modifier.key.abap.ddic
+//    ^^^^^^^ keyword.other.include.abap.ddic
+//            ^^^^^^^^^^^^^ entity.name.type.include.abap.ddic
+  "_ext" : include zdemo_ext with suffix ext;
+//^^^^^^ entity.name.variable.field.abap.ddic
+//         ^^^^^^^ keyword.other.include.abap.ddic
+//                 ^^^^^^^^^ entity.name.type.include.abap.ddic
+//                           ^^^^^^^^^^^ keyword.other.suffix.abap.ddic
+//                                       ^^^ entity.name.type.suffix.abap.ddic
+  _named : include /dmo/other;
+//^^^^^^ entity.name.variable.field.abap.ddic
+//         ^^^^^^^ keyword.other.include.abap.ddic
+//                 ^^^^^^^^^^ entity.name.type.include.abap.ddic
+}

@@ -1,0 +1,69 @@
+// SYNTAX TEST "source.ddic" "annotations, DEFINE TABLE and plain fields"
+
+@EndUserText.label : 'Demo table'
+//<- punctuation.definition.annotation.abap.ddic
+// ^^^^^^^^^^^^^^^ storage.type.annotation.abap.ddic
+//                 ^ punctuation.separator.type.abap.ddic
+//                   ^ string.quoted.single.abap.ddic punctuation.definition.string.begin.abap.ddic
+//                    ^^^^^^^^^^ string.quoted.single.abap.ddic
+//                              ^ string.quoted.single.abap.ddic punctuation.definition.string.end.abap.ddic
+
+@AbapCatalog.tableCategory : #TRANSPARENT
+// ^^^^^^^^^^^^^^^^^^^^^^^ storage.type.annotation.abap.ddic
+//                           ^ punctuation.definition.constant.abap.ddic
+//                           ^^^^^^^^^^^^ constant.other.enum.abap.ddic
+
+@AbapCatalog.foreignKey.screenCheck : true
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ storage.type.annotation.abap.ddic
+//                                    ^^^^ constant.language.abap.ddic
+
+@<Semantics.quantity.unitOfMeasure : 'tab.unit'
+//<- punctuation.definition.annotation.abap.ddic
+//  ^^^^^^^ storage.type.annotation.abap.ddic
+
+define table zdemo_table {
+//<- keyword.control.define.abap.ddic
+//^^^^ keyword.control.define.abap.ddic
+//     ^^^^^ storage.type.object.abap.ddic
+//           ^^^^^^^^^^^ entity.name.type.abap.ddic
+//                       ^ punctuation.section.block.abap.ddic
+
+  key mandt : abap.clnt not null;
+//^^^ storage.modifier.key.abap.ddic
+//    ^^^^^ entity.name.variable.field.abap.ddic
+//          ^ punctuation.separator.type.abap.ddic
+//            ^^^^ support.type.builtin.abap.ddic
+//                ^ punctuation.accessor.abap.ddic
+//                 ^^^^ support.type.builtin.abap.ddic
+//                      ^^^^^^^^ storage.modifier.not-null.abap.ddic
+//                              ^ punctuation.terminator.statement.abap.ddic
+
+  KEY ID : ABAP.CHAR(10) NOT NULL;
+//^^^ storage.modifier.key.abap.ddic
+//    ^^ entity.name.variable.field.abap.ddic
+//         ^^^^ support.type.builtin.abap.ddic
+//              ^^^^ support.type.builtin.abap.ddic
+//                  ^ punctuation.definition.parameters.begin.abap.ddic
+//                   ^^ constant.numeric.integer.abap.ddic
+//                     ^ punctuation.definition.parameters.end.abap.ddic
+//                       ^^^^^^^^ storage.modifier.not-null.abap.ddic
+
+  carrid : s_carr_id;
+//^^^^^^ entity.name.variable.field.abap.ddic
+//         ^^^^^^^^^ entity.name.type.data-element.abap.ddic
+
+  namespaced : /dmo/carrier_id;
+//^^^^^^^^^^ entity.name.variable.field.abap.ddic
+//             ^^^^^^^^^^^^^^^ entity.name.type.data-element.abap.ddic
+
+  key : abap.char(1);
+//^^^ entity.name.variable.field.abap.ddic
+//^^^ -storage.modifier
+//      ^^^^ support.type.builtin.abap.ddic
+
+  "_quoted" : abap.char(1);
+//^^^^^^^^^ entity.name.variable.field.abap.ddic
+//^^^^^^^^^ -string
+//            ^^^^ support.type.builtin.abap.ddic
+}
+//<- punctuation.section.block.abap.ddic

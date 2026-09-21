@@ -1,0 +1,473 @@
+>@EndUserText.label : 'Syntax highlighting demo'
+#^ source.ddic punctuation.definition.annotation.abap.ddic
+# ^^^^^^^^^^^^^^^^^ source.ddic storage.type.annotation.abap.ddic
+#                  ^ source.ddic
+#                   ^ source.ddic punctuation.separator.type.abap.ddic
+#                    ^ source.ddic
+#                     ^ source.ddic string.quoted.single.abap.ddic punctuation.definition.string.begin.abap.ddic
+#                      ^^^^^^^^^^^^^^^^^^^^^^^^ source.ddic string.quoted.single.abap.ddic
+#                                              ^ source.ddic string.quoted.single.abap.ddic punctuation.definition.string.end.abap.ddic
+>@AbapCatalog.enhancementCategory : #NOT_EXTENSIBLE
+#^ source.ddic punctuation.definition.annotation.abap.ddic
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.ddic storage.type.annotation.abap.ddic
+#                                ^ source.ddic
+#                                 ^ source.ddic punctuation.separator.type.abap.ddic
+#                                  ^ source.ddic
+#                                   ^ source.ddic constant.other.enum.abap.ddic punctuation.definition.constant.abap.ddic
+#                                    ^^^^^^^^^^^^^^ source.ddic constant.other.enum.abap.ddic
+>@AbapCatalog.tableCategory : #TRANSPARENT
+#^ source.ddic punctuation.definition.annotation.abap.ddic
+# ^^^^^^^^^^^^^^^^^^^^^^^^^ source.ddic storage.type.annotation.abap.ddic
+#                          ^ source.ddic
+#                           ^ source.ddic punctuation.separator.type.abap.ddic
+#                            ^ source.ddic
+#                             ^ source.ddic constant.other.enum.abap.ddic punctuation.definition.constant.abap.ddic
+#                              ^^^^^^^^^^^ source.ddic constant.other.enum.abap.ddic
+>@AbapCatalog.deliveryClass : #A
+#^ source.ddic punctuation.definition.annotation.abap.ddic
+# ^^^^^^^^^^^^^^^^^^^^^^^^^ source.ddic storage.type.annotation.abap.ddic
+#                          ^ source.ddic
+#                           ^ source.ddic punctuation.separator.type.abap.ddic
+#                            ^ source.ddic
+#                             ^ source.ddic constant.other.enum.abap.ddic punctuation.definition.constant.abap.ddic
+#                              ^ source.ddic constant.other.enum.abap.ddic
+>@AbapCatalog.dataMaintenance : #ALLOWED
+#^ source.ddic punctuation.definition.annotation.abap.ddic
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.ddic storage.type.annotation.abap.ddic
+#                            ^ source.ddic
+#                             ^ source.ddic punctuation.separator.type.abap.ddic
+#                              ^ source.ddic
+#                               ^ source.ddic constant.other.enum.abap.ddic punctuation.definition.constant.abap.ddic
+#                                ^^^^^^^ source.ddic constant.other.enum.abap.ddic
+>@AbapCatalog.replacementObject : 'demo_cds_view'
+#^ source.ddic punctuation.definition.annotation.abap.ddic
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.ddic storage.type.annotation.abap.ddic
+#                              ^ source.ddic
+#                               ^ source.ddic punctuation.separator.type.abap.ddic
+#                                ^ source.ddic
+#                                 ^ source.ddic string.quoted.single.abap.ddic punctuation.definition.string.begin.abap.ddic
+#                                  ^^^^^^^^^^^^^ source.ddic string.quoted.single.abap.ddic
+#                                               ^ source.ddic string.quoted.single.abap.ddic punctuation.definition.string.end.abap.ddic
+>define table zdemo_syntax {
+#^^^^^^ source.ddic keyword.control.define.abap.ddic
+#      ^ source.ddic
+#       ^^^^^ source.ddic storage.type.object.abap.ddic
+#            ^ source.ddic
+#             ^^^^^^^^^^^^ source.ddic entity.name.type.abap.ddic
+#                         ^ source.ddic
+#                          ^ source.ddic punctuation.section.block.abap.ddic
+>
+>  // a line comment
+#^^ source.ddic
+#  ^^ source.ddic comment.line.double-slash.abap.ddic punctuation.definition.comment.abap.ddic
+#    ^^^^^^^^^^^^^^^ source.ddic comment.line.double-slash.abap.ddic
+>  /* a block
+#^^ source.ddic
+#  ^^ source.ddic comment.block.abap.ddic punctuation.definition.comment.begin.abap.ddic
+#    ^^^^^^^^^ source.ddic comment.block.abap.ddic
+>     comment */
+#^^^^^^^^^^^^^ source.ddic comment.block.abap.ddic
+#             ^^ source.ddic comment.block.abap.ddic punctuation.definition.comment.end.abap.ddic
+>
+>  key mandt    : abap.clnt not null;
+#^^ source.ddic
+#  ^^^ source.ddic storage.modifier.key.abap.ddic
+#     ^ source.ddic
+#      ^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#           ^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^ source.ddic support.type.builtin.abap.ddic
+#                          ^ source.ddic
+#                           ^^^^^^^^ source.ddic storage.modifier.not-null.abap.ddic
+#                                   ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  key id       : char1 not null;
+#^^ source.ddic
+#  ^^^ source.ddic storage.modifier.key.abap.ddic
+#     ^ source.ddic
+#      ^^ source.ddic entity.name.variable.field.abap.ddic
+#        ^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^^ source.ddic entity.name.type.data-element.abap.ddic
+#                      ^ source.ddic
+#                       ^^^^^^^^ source.ddic storage.modifier.not-null.abap.ddic
+#                               ^ source.ddic punctuation.terminator.statement.abap.ddic
+>
+>  @AbapCatalog.foreignKey.label : 'Check against airline'
+#^^ source.ddic
+#  ^ source.ddic punctuation.definition.annotation.abap.ddic
+#   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.ddic storage.type.annotation.abap.ddic
+#                               ^ source.ddic
+#                                ^ source.ddic punctuation.separator.type.abap.ddic
+#                                 ^ source.ddic
+#                                  ^ source.ddic string.quoted.single.abap.ddic punctuation.definition.string.begin.abap.ddic
+#                                   ^^^^^^^^^^^^^^^^^^^^^ source.ddic string.quoted.single.abap.ddic
+#                                                        ^ source.ddic string.quoted.single.abap.ddic punctuation.definition.string.end.abap.ddic
+>  @AbapCatalog.foreignKey.keyType : #KEY
+#^^ source.ddic
+#  ^ source.ddic punctuation.definition.annotation.abap.ddic
+#   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.ddic storage.type.annotation.abap.ddic
+#                                 ^ source.ddic
+#                                  ^ source.ddic punctuation.separator.type.abap.ddic
+#                                   ^ source.ddic
+#                                    ^ source.ddic constant.other.enum.abap.ddic punctuation.definition.constant.abap.ddic
+#                                     ^^^ source.ddic constant.other.enum.abap.ddic
+>  @AbapCatalog.foreignKey.screenCheck : true
+#^^ source.ddic
+#  ^ source.ddic punctuation.definition.annotation.abap.ddic
+#   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.ddic storage.type.annotation.abap.ddic
+#                                     ^ source.ddic
+#                                      ^ source.ddic punctuation.separator.type.abap.ddic
+#                                       ^ source.ddic
+#                                        ^^^^ source.ddic constant.language.abap.ddic
+>  carrid       : s_carr_id
+#^^ source.ddic
+#  ^^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#        ^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^^^^^^ source.ddic entity.name.type.data-element.abap.ddic
+>    with foreign key [0..*,1] scarr
+#^^^^ source.ddic
+#    ^^^^^^^^^^^^^^^^ source.ddic keyword.other.foreign-key.abap.ddic
+#                    ^ source.ddic
+#                     ^ source.ddic punctuation.definition.cardinality.begin.abap.ddic
+#                      ^^^^^^ source.ddic constant.other.cardinality.abap.ddic
+#                            ^ source.ddic punctuation.definition.cardinality.end.abap.ddic
+#                             ^ source.ddic
+#                              ^^^^^ source.ddic entity.name.type.check-table.abap.ddic
+>      where mandt = zdemo_syntax.mandt
+#^^^^^^ source.ddic
+#      ^^^^^ source.ddic keyword.other.where.abap.ddic
+#           ^ source.ddic
+#            ^^^^^ source.ddic variable.other.field.abap.ddic
+#                 ^ source.ddic
+#                  ^ source.ddic keyword.operator.comparison.abap.ddic
+#                   ^ source.ddic
+#                    ^^^^^^^^^^^^ source.ddic variable.other.object.abap.ddic
+#                                ^ source.ddic punctuation.accessor.abap.ddic
+#                                 ^^^^^ source.ddic variable.other.field.abap.ddic
+>        and carrid = zdemo_syntax.carrid;
+#^^^^^^^^ source.ddic
+#        ^^^ source.ddic keyword.other.where.abap.ddic
+#           ^ source.ddic
+#            ^^^^^^ source.ddic variable.other.field.abap.ddic
+#                  ^ source.ddic
+#                   ^ source.ddic keyword.operator.comparison.abap.ddic
+#                    ^ source.ddic
+#                     ^^^^^^^^^^^^ source.ddic variable.other.object.abap.ddic
+#                                 ^ source.ddic punctuation.accessor.abap.ddic
+#                                  ^^^^^^ source.ddic variable.other.field.abap.ddic
+#                                        ^ source.ddic punctuation.terminator.statement.abap.ddic
+>
+>  connid       : s_conn_id
+#^^ source.ddic
+#  ^^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#        ^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^^^^^^ source.ddic entity.name.type.data-element.abap.ddic
+>    with value help demo_f4_field
+#^^^^ source.ddic
+#    ^^^^^^^^^^^^^^^ source.ddic keyword.other.value-help.abap.ddic
+#                   ^ source.ddic
+#                    ^^^^^^^^^^^^^ source.ddic entity.name.type.value-help.abap.ddic
+>      where carrid = zdemo_syntax.carrid;
+#^^^^^^ source.ddic
+#      ^^^^^ source.ddic keyword.other.where.abap.ddic
+#           ^ source.ddic
+#            ^^^^^^ source.ddic variable.other.field.abap.ddic
+#                  ^ source.ddic
+#                   ^ source.ddic keyword.operator.comparison.abap.ddic
+#                    ^ source.ddic
+#                     ^^^^^^^^^^^^ source.ddic variable.other.object.abap.ddic
+#                                 ^ source.ddic punctuation.accessor.abap.ddic
+#                                  ^^^^^^ source.ddic variable.other.field.abap.ddic
+#                                        ^ source.ddic punctuation.terminator.statement.abap.ddic
+>
+>  status       : abap.char(1) with value help zdemo_vh where status = 'A';
+#^^ source.ddic
+#  ^^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#        ^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^ source.ddic support.type.builtin.abap.ddic
+#                          ^ source.ddic punctuation.definition.parameters.begin.abap.ddic
+#                           ^ source.ddic constant.numeric.integer.abap.ddic
+#                            ^ source.ddic punctuation.definition.parameters.end.abap.ddic
+#                             ^ source.ddic
+#                              ^^^^^^^^^^^^^^^ source.ddic keyword.other.value-help.abap.ddic
+#                                             ^ source.ddic
+#                                              ^^^^^^^^ source.ddic entity.name.type.value-help.abap.ddic
+#                                                      ^ source.ddic
+#                                                       ^^^^^ source.ddic keyword.other.where.abap.ddic
+#                                                            ^ source.ddic
+#                                                             ^^^^^^ source.ddic variable.other.field.abap.ddic
+#                                                                   ^ source.ddic
+#                                                                    ^ source.ddic keyword.operator.comparison.abap.ddic
+#                                                                     ^ source.ddic
+#                                                                      ^ source.ddic string.quoted.single.abap.ddic punctuation.definition.string.begin.abap.ddic
+#                                                                       ^ source.ddic string.quoted.single.abap.ddic
+#                                                                        ^ source.ddic string.quoted.single.abap.ddic punctuation.definition.string.end.abap.ddic
+#                                                                         ^ source.ddic punctuation.terminator.statement.abap.ddic
+>
+>  @Semantics.quantity.unitOfMeasure : 'zdemo_syntax.unit'
+#^^ source.ddic
+#  ^ source.ddic punctuation.definition.annotation.abap.ddic
+#   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.ddic storage.type.annotation.abap.ddic
+#                                   ^ source.ddic
+#                                    ^ source.ddic punctuation.separator.type.abap.ddic
+#                                     ^ source.ddic
+#                                      ^ source.ddic string.quoted.single.abap.ddic punctuation.definition.string.begin.abap.ddic
+#                                       ^^^^^^^^^^^^^^^^^ source.ddic string.quoted.single.abap.ddic
+#                                                        ^ source.ddic string.quoted.single.abap.ddic punctuation.definition.string.end.abap.ddic
+>  quantity     : abap.quan(13,3) with reference table zunit_tab and reference field unit;
+#^^ source.ddic
+#  ^^^^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#          ^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^ source.ddic support.type.builtin.abap.ddic
+#                          ^ source.ddic punctuation.definition.parameters.begin.abap.ddic
+#                           ^^ source.ddic constant.numeric.integer.abap.ddic
+#                             ^ source.ddic punctuation.separator.abap.ddic
+#                              ^ source.ddic constant.numeric.integer.abap.ddic
+#                               ^ source.ddic punctuation.definition.parameters.end.abap.ddic
+#                                ^ source.ddic
+#                                 ^^^^^^^^^^^^^^^^^^^^ source.ddic keyword.other.reference.abap.ddic
+#                                                     ^ source.ddic
+#                                                      ^^^^^^^^^ source.ddic entity.name.type.reference-table.abap.ddic
+#                                                               ^ source.ddic
+#                                                                ^^^^^^^^^^^^^^^^^^^ source.ddic keyword.other.reference.abap.ddic
+#                                                                                   ^ source.ddic
+#                                                                                    ^^^^ source.ddic variable.other.field.abap.ddic
+#                                                                                        ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  unit         : abap.unit(3);
+#^^ source.ddic
+#  ^^^^ source.ddic entity.name.variable.field.abap.ddic
+#      ^^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^ source.ddic support.type.builtin.abap.ddic
+#                          ^ source.ddic punctuation.definition.parameters.begin.abap.ddic
+#                           ^ source.ddic constant.numeric.integer.abap.ddic
+#                            ^ source.ddic punctuation.definition.parameters.end.abap.ddic
+#                             ^ source.ddic punctuation.terminator.statement.abap.ddic
+>
+>  num1         : abap.int8;
+#^^ source.ddic
+#  ^^^^ source.ddic entity.name.variable.field.abap.ddic
+#      ^^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^ source.ddic support.type.builtin.abap.ddic
+#                          ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  dec1         : abap.dec(31,10);
+#^^ source.ddic
+#  ^^^^ source.ddic entity.name.variable.field.abap.ddic
+#      ^^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^ source.ddic support.type.builtin.abap.ddic
+#                         ^ source.ddic punctuation.definition.parameters.begin.abap.ddic
+#                          ^^ source.ddic constant.numeric.integer.abap.ddic
+#                            ^ source.ddic punctuation.separator.abap.ddic
+#                             ^^ source.ddic constant.numeric.integer.abap.ddic
+#                               ^ source.ddic punctuation.definition.parameters.end.abap.ddic
+#                                ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  decf1        : abap.df34_dec(31,0);
+#^^ source.ddic
+#  ^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#       ^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^^^^^ source.ddic support.type.builtin.abap.ddic
+#                              ^ source.ddic punctuation.definition.parameters.begin.abap.ddic
+#                               ^^ source.ddic constant.numeric.integer.abap.ddic
+#                                 ^ source.ddic punctuation.separator.abap.ddic
+#                                  ^ source.ddic constant.numeric.integer.abap.ddic
+#                                   ^ source.ddic punctuation.definition.parameters.end.abap.ddic
+#                                    ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  fltp1        : abap.fltp;
+#^^ source.ddic
+#  ^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#       ^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^ source.ddic support.type.builtin.abap.ddic
+#                          ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  numc1        : abap.numc(10);
+#^^ source.ddic
+#  ^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#       ^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^ source.ddic support.type.builtin.abap.ddic
+#                          ^ source.ddic punctuation.definition.parameters.begin.abap.ddic
+#                           ^^ source.ddic constant.numeric.integer.abap.ddic
+#                             ^ source.ddic punctuation.definition.parameters.end.abap.ddic
+#                              ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  descr        : abap.sstring(255);
+#^^ source.ddic
+#  ^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#       ^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^^^^ source.ddic support.type.builtin.abap.ddic
+#                             ^ source.ddic punctuation.definition.parameters.begin.abap.ddic
+#                              ^^^ source.ddic constant.numeric.integer.abap.ddic
+#                                 ^ source.ddic punctuation.definition.parameters.end.abap.ddic
+#                                  ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  text         : abap.string(0);
+#^^ source.ddic
+#  ^^^^ source.ddic entity.name.variable.field.abap.ddic
+#      ^^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^^^ source.ddic support.type.builtin.abap.ddic
+#                            ^ source.ddic punctuation.definition.parameters.begin.abap.ddic
+#                             ^ source.ddic constant.numeric.integer.abap.ddic
+#                              ^ source.ddic punctuation.definition.parameters.end.abap.ddic
+#                               ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  data         : abap.rawstring(0);
+#^^ source.ddic
+#  ^^^^ source.ddic entity.name.variable.field.abap.ddic
+#      ^^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^^^^^^ source.ddic support.type.builtin.abap.ddic
+#                               ^ source.ddic punctuation.definition.parameters.begin.abap.ddic
+#                                ^ source.ddic constant.numeric.integer.abap.ddic
+#                                 ^ source.ddic punctuation.definition.parameters.end.abap.ddic
+#                                  ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  dats1        : abap.dats;
+#^^ source.ddic
+#  ^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#       ^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^ source.ddic support.type.builtin.abap.ddic
+#                          ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  tims1        : abap.tims;
+#^^ source.ddic
+#  ^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#       ^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^ source.ddic support.type.builtin.abap.ddic
+#                          ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  langu        : abap.lang;
+#^^ source.ddic
+#  ^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#       ^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^ source.ddic support.type.builtin.abap.ddic
+#                     ^ source.ddic punctuation.accessor.abap.ddic
+#                      ^^^^ source.ddic support.type.builtin.abap.ddic
+#                          ^ source.ddic punctuation.terminator.statement.abap.ddic
+>
+>  ref          : reference to object;
+#^^ source.ddic
+#  ^^^ source.ddic entity.name.variable.field.abap.ddic
+#     ^^^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^^^^^^ source.ddic keyword.other.reference.abap.ddic
+#                          ^ source.ddic
+#                           ^^ source.ddic keyword.other.reference.abap.ddic
+#                             ^ source.ddic
+#                              ^^^^^^ source.ddic entity.name.type.abap.ddic
+#                                    ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  sub          : zdemo_struct boxed;
+#^^ source.ddic
+#  ^^^ source.ddic entity.name.variable.field.abap.ddic
+#     ^^^^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^^^^^^^^^ source.ddic entity.name.type.data-element.abap.ddic
+#                             ^ source.ddic
+#                              ^^^^^ source.ddic storage.modifier.boxed.abap.ddic
+#                                   ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  namespaced   : /dmo/carrier_id;
+#^^ source.ddic
+#  ^^^^^^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#            ^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^^^^^^^^^^^^ source.ddic entity.name.type.data-element.abap.ddic
+#                                ^ source.ddic punctuation.terminator.statement.abap.ddic
+>
+>  include zdemo_include;
+#^^ source.ddic
+#  ^^^^^^^ source.ddic keyword.other.include.abap.ddic
+#         ^ source.ddic
+#          ^^^^^^^^^^^^^ source.ddic entity.name.type.include.abap.ddic
+#                       ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  key include zdemo_key_include;
+#^^ source.ddic
+#  ^^^ source.ddic storage.modifier.key.abap.ddic
+#     ^ source.ddic
+#      ^^^^^^^ source.ddic keyword.other.include.abap.ddic
+#             ^ source.ddic
+#              ^^^^^^^^^^^^^^^^^ source.ddic entity.name.type.include.abap.ddic
+#                               ^ source.ddic punctuation.terminator.statement.abap.ddic
+>  "_ext"       : include zdemo_ext with suffix ext;
+#^^ source.ddic
+#  ^^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#        ^^^^^^^ source.ddic
+#               ^ source.ddic punctuation.separator.type.abap.ddic
+#                ^ source.ddic
+#                 ^^^^^^^ source.ddic keyword.other.include.abap.ddic
+#                        ^ source.ddic
+#                         ^^^^^^^^^ source.ddic entity.name.type.include.abap.ddic
+#                                  ^ source.ddic
+#                                   ^^^^^^^^^^^ source.ddic keyword.other.suffix.abap.ddic
+#                                              ^ source.ddic
+#                                               ^^^ source.ddic entity.name.type.suffix.abap.ddic
+#                                                  ^ source.ddic punctuation.terminator.statement.abap.ddic
+>
+>  extend country : with foreign key ztabl_country;
+#^^ source.ddic
+#  ^^^^^^ source.ddic keyword.control.extend.abap.ddic
+#        ^ source.ddic
+#         ^^^^^^^ source.ddic entity.name.variable.field.abap.ddic
+#                ^ source.ddic
+#                 ^ source.ddic punctuation.separator.type.abap.ddic
+#                  ^ source.ddic
+#                   ^^^^^^^^^^^^^^^^ source.ddic keyword.other.foreign-key.abap.ddic
+#                                   ^ source.ddic
+#                                    ^^^^^^^^^^^^^ source.ddic entity.name.type.check-table.abap.ddic
+#                                                 ^ source.ddic punctuation.terminator.statement.abap.ddic
+>}
+#^ source.ddic punctuation.section.block.abap.ddic
+>

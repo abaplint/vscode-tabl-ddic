@@ -1,0 +1,34 @@
+// SYNTAX TEST "source.ddic" "DEFINE STRUCTURE, DEFINE ASPECT and EXTEND TYPE"
+
+define structure /dmo/s {
+//<- keyword.control.define.abap.ddic
+//     ^^^^^^^^^ storage.type.object.abap.ddic
+//               ^^^^^^ entity.name.type.abap.ddic
+  travel_id : abap.char(16);
+  ref : reference to object;
+//      ^^^^^^^^^ keyword.other.reference.abap.ddic
+//                ^^ keyword.other.reference.abap.ddic
+//                   ^^^^^^ entity.name.type.abap.ddic
+  sub : zdemo_struct boxed;
+//      ^^^^^^^^^^^^ entity.name.type.data-element.abap.ddic
+//                   ^^^^^ storage.modifier.boxed.abap.ddic
+}
+
+define aspect zdemo_aspect {
+//     ^^^^^^ storage.type.object.abap.ddic
+//            ^^^^^^^^^^^^ entity.name.type.abap.ddic
+  key task_name : abap.char(40);
+//^^^ storage.modifier.key.abap.ddic
+//    ^^^^^^^^^ entity.name.variable.field.abap.ddic
+}
+
+extend type /dmo/base with /dmo/base_append {
+//<- keyword.control.extend.abap.ddic
+//     ^^^^ storage.type.object.abap.ddic
+//          ^^^^^^^^^ entity.name.type.abap.ddic
+//                    ^^^^ keyword.control.extend.abap.ddic
+//                         ^^^^^^^^^^^^^^^^ entity.name.type.abap.ddic
+  append_field : abap.char(10);
+//^^^^^^^^^^^^ entity.name.variable.field.abap.ddic
+//                    ^^^^ support.type.builtin.abap.ddic
+}

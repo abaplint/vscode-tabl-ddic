@@ -1,0 +1,25 @@
+// SYNTAX TEST "source.ddic" "comments and string literals"
+
+@EndUserText.label : 'it''s quoted'
+//                   ^^^^^^^^^^^^^^ string.quoted.single.abap.ddic
+//                      ^^ constant.character.escape.abap.ddic
+define table zdemo_comments {
+
+  // a line comment
+//^^ comment.line.double-slash.abap.ddic
+//   ^^^^^^^^^^^^^^ comment.line.double-slash.abap.ddic
+  /* a block
+//^^ comment.block.abap.ddic
+//   ^^^^^^^ comment.block.abap.ddic
+     comment */
+//   ^^^^^^^ comment.block.abap.ddic
+//           ^^ comment.block.abap.ddic
+
+  key mandt : abap.clnt not null; // trailing comment
+//                      ^^^^^^^^ storage.modifier.not-null.abap.ddic
+//                                ^^^^^^^^^^^^^^^^^^^ comment.line.double-slash.abap.ddic
+  url : abap.char(40); // no '' string here
+//                     ^^ comment.line.double-slash.abap.ddic
+//                           ^^ comment.line.double-slash.abap.ddic
+//                           ^^ -string.quoted.single.abap.ddic
+}

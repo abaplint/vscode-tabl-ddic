@@ -1,0 +1,56 @@
+// SYNTAX TEST "source.ddic" "foreign key, value help and reference clauses"
+
+define table zdemo_clauses {
+
+  key carrid : s_carr_id not null
+//    ^^^^^^ entity.name.variable.field.abap.ddic
+//             ^^^^^^^^^ entity.name.type.data-element.abap.ddic
+//                       ^^^^^^^^ storage.modifier.not-null.abap.ddic
+    with foreign key [0..*,1] scarr
+//  ^^^^^^^^^^^^^^^^ keyword.other.foreign-key.abap.ddic
+//                   ^ punctuation.definition.cardinality.begin.abap.ddic
+//                    ^^^^^^ constant.other.cardinality.abap.ddic
+//                          ^ punctuation.definition.cardinality.end.abap.ddic
+//                            ^^^^^ entity.name.type.check-table.abap.ddic
+      where mandt = zdemo_clauses.mandt
+//    ^^^^^ keyword.other.where.abap.ddic
+//          ^^^^^ variable.other.field.abap.ddic
+//                ^ keyword.operator.comparison.abap.ddic
+//                  ^^^^^^^^^^^^^ variable.other.object.abap.ddic
+//                               ^ punctuation.accessor.abap.ddic
+//                                ^^^^^ variable.other.field.abap.ddic
+        and carrid = zdemo_clauses.carrid;
+//      ^^^ keyword.other.where.abap.ddic
+//          ^^^^^^ variable.other.field.abap.ddic
+//                                       ^ punctuation.terminator.statement.abap.ddic
+
+  connid : s_conn_id
+    with value help demo_f4_field
+//  ^^^^^^^^^^^^^^^ keyword.other.value-help.abap.ddic
+//                  ^^^^^^^^^^^^^ entity.name.type.value-help.abap.ddic
+      where carrid = zdemo_clauses.carrid;
+//    ^^^^^ keyword.other.where.abap.ddic
+//          ^^^^^^ variable.other.field.abap.ddic
+
+  status : abap.char(1) with value help zdemo_vh where status = 'A';
+//                      ^^^^^^^^^^^^^^^ keyword.other.value-help.abap.ddic
+//                                      ^^^^^^^^ entity.name.type.value-help.abap.ddic
+//                                               ^^^^^ keyword.other.where.abap.ddic
+//                                                              ^^^ string.quoted.single.abap.ddic
+
+  quantity : abap.quan(13,3) with reference table zunit_tab and reference field unit;
+//                ^^^^ support.type.builtin.abap.ddic
+//                     ^^ constant.numeric.integer.abap.ddic
+//                       ^ punctuation.separator.abap.ddic
+//                           ^^^^^^^^^^^^^^^^^^^^ keyword.other.reference.abap.ddic
+//                                                ^^^^^^^^^ entity.name.type.reference-table.abap.ddic
+//                                                          ^^^^^^^^^^^^^^^^^^^ keyword.other.reference.abap.ddic
+//                                                                              ^^^^ variable.other.field.abap.ddic
+
+  extend country : with foreign key ztabl_country;
+//^^^^^^ keyword.control.extend.abap.ddic
+//       ^^^^^^^ entity.name.variable.field.abap.ddic
+//                 ^^^^^^^^^^^^^^^^ keyword.other.foreign-key.abap.ddic
+//                                  ^^^^^^^^^^^^^ entity.name.type.check-table.abap.ddic
+}
+//<- punctuation.section.block.abap.ddic

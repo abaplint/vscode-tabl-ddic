@@ -1,0 +1,45 @@
+// SYNTAX TEST "source.ddic" "built-in ABAP Dictionary types"
+
+define table zdemo_types {
+  a : abap.accp;
+//         ^^^^ support.type.builtin.abap.ddic
+  b : abap.cuky;
+//         ^^^^ support.type.builtin.abap.ddic
+  c : abap.curr(15,2);
+//         ^^^^ support.type.builtin.abap.ddic
+//              ^^ constant.numeric.integer.abap.ddic
+//                 ^ constant.numeric.integer.abap.ddic
+  d : abap.dec(31,10);
+//         ^^^ support.type.builtin.abap.ddic
+  e : abap.df34_dec(31,0);
+//         ^^^^^^^^ support.type.builtin.abap.ddic
+  f : abap.fltp;
+//         ^^^^ support.type.builtin.abap.ddic
+  g : abap.int8;
+//         ^^^^ support.type.builtin.abap.ddic
+  h : abap.lang;
+//         ^^^^ support.type.builtin.abap.ddic
+  i : abap.lchr(256);
+//         ^^^^ support.type.builtin.abap.ddic
+  j : abap.numc(10);
+//         ^^^^ support.type.builtin.abap.ddic
+  k : abap.raw(16);
+//         ^^^ support.type.builtin.abap.ddic
+  l : abap.rawstring(0);
+//         ^^^^^^^^^ support.type.builtin.abap.ddic
+  m : abap.sstring(255);
+//         ^^^^^^^ support.type.builtin.abap.ddic
+  n : abap.string(0);
+//         ^^^^^^ support.type.builtin.abap.ddic
+  o : abap.tims;
+//         ^^^^ support.type.builtin.abap.ddic
+  p : abap.unit(3);
+//         ^^^^ support.type.builtin.abap.ddic
+  q : abap.utclong;
+//         ^^^^^^^ support.type.builtin.abap.ddic
+
+  unknown : abap.notatype(4);
+//          ^^^^ support.type.abap.ddic
+//               ^^^^^^^^ support.type.abap.ddic
+//               ^^^^^^^^ -support.type.builtin.abap.ddic
+}

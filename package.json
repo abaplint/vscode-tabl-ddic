@@ -9,23 +9,41 @@
   "categories": [
     "Programming Languages"
   ],
-	"publisher": "larshp",
-	"keywords": [
-		"abap",
-		"SAP",
-		"abaplint"
-	],
+  "publisher": "larshp",
+  "keywords": [
+    "abap",
+    "SAP",
+    "abaplint"
+  ],
+  "scripts": {
+    "test": "npm run test:unit && npm run test:snapshot",
+    "test:unit": "vscode-tmgrammar-test \"test/**/*.test.tabl.ddic\"",
+    "test:snapshot": "vscode-tmgrammar-snap -s source.ddic \"examples/**/*.tabl.ddic\"",
+    "test:snapshot:update": "vscode-tmgrammar-snap -s source.ddic -u \"examples/**/*.tabl.ddic\""
+  },
   "contributes": {
-    "languages": [{
-      "id": "abap.ddic",
-      "aliases": ["ABAP TABL DDIC", "abap.ddic"],
-      "extensions": [".tabl.ddic"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "abap.ddic",
-      "scopeName": "source.ddic",
-      "path": "./syntaxes/abap.ddic.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "abap.ddic",
+        "aliases": [
+          "ABAP TABL DDIC",
+          "abap.ddic"
+        ],
+        "extensions": [
+          ".tabl.ddic"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "abap.ddic",
+        "scopeName": "source.ddic",
+        "path": "./syntaxes/abap.ddic.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "vscode-tmgrammar-test": "^0.1.3"
   }
 }
