@@ -21,6 +21,10 @@
     "test:snapshot": "vscode-tmgrammar-snap -s source.ddic \"examples/**/*.tabl.ddic\"",
     "test:snapshot:update": "vscode-tmgrammar-snap -s source.ddic -u \"examples/**/*.tabl.ddic\""
   },
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/abaplint/vscode-tabl-ddic"
+	},
   "contributes": {
     "languages": [
       {
