@@ -1,0 +1,31 @@
+{
+  "name": "vscode-tabl-ddic",
+  "displayName": "vscode-tabl-ddic",
+  "description": "ABAP TABL DDIC Syntax Hightligting",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.138.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+	"publisher": "larshp",
+	"keywords": [
+		"abap",
+		"SAP",
+		"abaplint"
+	],
+  "contributes": {
+    "languages": [{
+      "id": "abap.ddic",
+      "aliases": ["ABAP TABL DDIC", "abap.ddic"],
+      "extensions": [".tabl.ddic"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "abap.ddic",
+      "scopeName": "source.ddic",
+      "path": "./syntaxes/abap.ddic.tmLanguage.json"
+    }]
+  }
+}
