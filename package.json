@@ -2,7 +2,7 @@
   "name": "vscode-tabl-ddic",
   "displayName": "vscode-tabl-ddic",
   "description": "ABAP TABL DDIC Syntax Hightligting",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.138.0"
   },
@@ -21,10 +21,10 @@
     "test:snapshot": "vscode-tmgrammar-snap -s source.ddic \"examples/**/*.tabl.ddic\"",
     "test:snapshot:update": "vscode-tmgrammar-snap -s source.ddic -u \"examples/**/*.tabl.ddic\""
   },
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/abaplint/vscode-tabl-ddic"
-	},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abaplint/vscode-tabl-ddic"
+  },
   "contributes": {
     "languages": [
       {
